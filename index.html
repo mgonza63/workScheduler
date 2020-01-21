@@ -11,30 +11,103 @@
    
 </head>
 <body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!--Moment JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <div class="container">
         <h1 id="title">Work Scheduler</h1>
         <h3 id="date"></h3>
+        <h3 id="time"></h3>
 
     </div>  
-    <div id="container">
-    <div id="calendar">
-        
+    <div class="container" id="calendar">
+        <div class="row">
+            <div id="times"class="col-sm-2">9:00am</div>
+            <div id="todo" class="col-md-8"><input id="inputText1" class="input" type="text"></div>
+            <div id="done-btn" class="col-sm-2"><button class="lock" id="lock1">Lock</button></div>
+        </div>
+        <div class="row">
+            <div id="times"class="col-sm-2">10:00am</div>
+            <div id="todo" class="col-md-8"><input id="inputText2" class="input" type="text"></div>
+            <div id="done-btn" class="col-sm-2"><button class="lock" id="lock2">Lock</button></div>
+        </div>
+        <div class="row">
+            <div id="times"class="col-sm-2">12:00am</div>
+            <div id="todo" class="col-md-8"><input id="inputText3" class="input" type="text"></div>
+            <div id="done-btn" class="col-sm-2"><button class="lock" id="lock3">Lock</button></div>
+        </div>
+        <div class="row">
+            <div id="times"class="col-sm-2">1:00pm</div>
+            <div id="todo" class="col-md-8"><input id="inputText4" class="input" type="text"></div>
+            <div id="done-btn" class="col-sm-2"><button class="lock" id="lock4">Lock</button></div>
+        </div>
+        <div class="row">
+            <div id="times"class="col-sm-2">2:00pm</div>
+            <div id="todo" class="col-md-8"><input class="input" type="text"></div>
+            <div id="done-btn" class="col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div id="times"class="col-sm-2">3:00pm</div>
+            <div id="todo" class="col-md-8"><input class="input" type="text"></div>
+            <div id="done-btn" class="col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div id="times"class="col-sm-2">4:00pm</div>
+            <div id="todo" class="col-md-8"><input class="input" type="text"></div>
+            <div id="done-btn" class="col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div id="times"class="col-sm-2">5:00pm</div>
+            <div id="todo" class="col-md-8"><input class="input" type="text"></div>
+            <div id="done-btn" class="col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div id="times"class="col-sm-2">6:00pm</div>
+            <div id="todo" class="col-md-8"><input class="input" type="text"></div>
+            <div id="done-btn" class="col-sm-2"></div>
+        </div>
+                                                                                                                
     </div>
 
-  </div>
 ​
   <!-- Script -->
   <script>
-      var datePlacement = document.querySelector("#date");
-      var timePlacement = document.querySelector("#time")
-     
+    var datePlacement = $("#date");
+    var timePlacement = $("#time");
+    var lockBtn = $("#lock1");
+    var inputText = $("#inputText");
+    
+    datePlacement.append(moment().format("dddd, MMMM Do YYYY"));
+    timePlacement.append(moment().format("h:mm:ss a"));
 
-      datePlacement.append(moment().format("dddd, MMMM Do YYYY"));
-      timePlacement.append(moment().format("h:mm:ss a"));
+    // timer type setup to update the date time
+    var datetime = null,
+        date = null;
 
-      console.log(moment().format("MMMM Do YYYY"));
+    // display updated time
+    var update = function () {
+        date = moment(new Date())
+        datetime.html(date.format('h:mm a'));
+    };
+
+    $(document).ready(function(){
+        datetime = $('#time')
+        update();
+        setInterval(update, 1000);
+    });  
+
+    // on click function for the lock button
+    $(lockBtn).on("click", function() {
+        
+        console.log("click!");
+
+    })
+    
+
   </script>
  
     

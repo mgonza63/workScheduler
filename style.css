@@ -2,4 +2,46 @@
 #date,
 #time {
     text-align: center;
+    
+}
+#time {
+    padding: 20px;
+}
+#todo {
+    border: 2px solid lightgray;
+    padding: 20px;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px dotted lightslategray;
+    border-right: none;
+}
+#times{
+    border-top: 1px dotted lightslategray;
+    border-bottom: 1px dotted lightslategray;
+    padding: 20px;
+}
+.input {
+    padding: 10px;
+    border: hidden;
+    width: 100%;
+
+}
+#done-btn {
+    background-color: rgb(183, 223, 248);
+    border: 1px solid lightgray;
+    border-top: 1px dotted lightgray;
+    border-radius: 25px;
+    border-top-left-radius: 0%;
+}
+.lock {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: rgb(183, 223, 248);
+    color: lightslategray;
+}
+.input:focus,
+.lock:focus {
+    outline: none;
+
 }
