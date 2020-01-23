@@ -7,7 +7,7 @@
 #time {
     padding: 20px;
 }
-#todo {
+.col-md-8 {
     border: 2px solid lightgray;
     padding: 20px;
     border-top: 1px solid lightgray;
@@ -19,10 +19,12 @@
     border-bottom: 1px dotted lightslategray;
     padding: 20px;
 }
-.input {
+input {
+    background: transparent;
     padding: 10px;
     border: hidden;
     width: 100%;
+    
 
 }
 #done-btn {

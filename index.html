@@ -27,23 +27,29 @@
     <div class="container" id="calendar">
         <div class="row">
             <div id="times"class="col-sm-2">9:00am</div>
-            <div id="todo" class="col-md-8"><input id="inputText1" class="input" type="text"></div>
-            <div id="done-btn" class="col-sm-2"><button class="lock" id="lock1">Lock</button></div>
+            <div id="todoA" class="col-md-8"><input id="inputTextA" class="input" type="text"></div>
+            <div id="done-btn" class="col-sm-2"><button type="button" class="lock" id="lockA">Lock</button></div>
         </div>
         <div class="row">
             <div id="times"class="col-sm-2">10:00am</div>
-            <div id="todo" class="col-md-8"><input id="inputText2" class="input" type="text"></div>
-            <div id="done-btn" class="col-sm-2"><button class="lock" id="lock2">Lock</button></div>
+            <div id="todoB" class="col-md-8"><input id="inputTextB" class="input" type="text"></div>
+
+            <div id="done-btn" class="col-sm-2"><button class="lock" id="lockB">Lock</button></div>
         </div>
         <div class="row">
-            <div id="times"class="col-sm-2">12:00am</div>
-            <div id="todo" class="col-md-8"><input id="inputText3" class="input" type="text"></div>
-            <div id="done-btn" class="col-sm-2"><button class="lock" id="lock3">Lock</button></div>
+            <div id="times"class="col-sm-2">11:00am</div>
+            <div id="todo" class="col-md-8"><input id="inputTextThree" class="input" type="text"></div>
+            <div id="done-btn" class="col-sm-2"><button class="lock" id="lockC">Lock</button></div>
+        </div>
+        <div class="row">
+            <div id="times"class="col-sm-2">12:00pm</div>
+            <div id="todo" class="col-md-8"><input id="inputTextFour" class="input" type="text"></div>
+            <div id="done-btn" class="col-sm-2"><button class="lock" id="lockD">Lock</button></div>
         </div>
         <div class="row">
             <div id="times"class="col-sm-2">1:00pm</div>
-            <div id="todo" class="col-md-8"><input id="inputText4" class="input" type="text"></div>
-            <div id="done-btn" class="col-sm-2"><button class="lock" id="lock4">Lock</button></div>
+            <div id="todo" class="col-md-8"><input class="input" type="text"></div>
+            <div id="done-btn" class="col-sm-2"></div>
         </div>
         <div class="row">
             <div id="times"class="col-sm-2">2:00pm</div>
@@ -65,11 +71,6 @@
             <div id="todo" class="col-md-8"><input class="input" type="text"></div>
             <div id="done-btn" class="col-sm-2"></div>
         </div>
-        <div class="row">
-            <div id="times"class="col-sm-2">6:00pm</div>
-            <div id="todo" class="col-md-8"><input class="input" type="text"></div>
-            <div id="done-btn" class="col-sm-2"></div>
-        </div>
                                                                                                                 
     </div>
 
@@ -78,9 +79,10 @@
   <script>
     var datePlacement = $("#date");
     var timePlacement = $("#time");
-    var lockBtn = $("#lock1");
-    var inputText = $("#inputText");
-    
+    var lockBtn = $("#lockA");
+    var inputText = $("#inputTextA");
+
+    // display date and time
     datePlacement.append(moment().format("dddd, MMMM Do YYYY"));
     timePlacement.append(moment().format("h:mm:ss a"));
 
@@ -93,20 +95,41 @@
         date = moment(new Date())
         datetime.html(date.format('h:mm a'));
     };
-
+    // update date
     $(document).ready(function(){
         datetime = $('#time')
         update();
         setInterval(update, 1000);
-    });  
+    });
+    
+    $("[id^=lock]").on("click", function () {
+        var id = this.id,
+            letter = id.substr(id.length - 1);
+
+        localStorage.setItem("input", $("#inputText" + letter).val());
+
+
+    });
 
     // on click function for the lock button
-    $(lockBtn).on("click", function() {
-        
-        console.log("click!");
+    // $(lockBtn).on("click", function() {
 
-    })
-    
+    //     var thisID = $(this).attr("id");
+    //     var divToLock = ".content_" + thisID;
+    //     console.log("click!");
+    //     localStorage.setItem("input", inputText.val());
+    //     var inputOne = localStorage.getItem("input");
+    //     inputText.text();
+        
+    var hours = new Date().getHours();
+    if (hours >= 9 && hours <= 10) {
+        $("this").css("background-color", "red");
+        $("#inputTextA").css("background-color", "lightgray");
+    }
+    if (hours > 10) {
+        $("#todoA").css("background-color", "lightgray");
+        $("#inputTextA").css("background-color", "lightgray");
+    }
 
   </script>
  
