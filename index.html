@@ -38,37 +38,37 @@
         </div>
         <div class="row">
             <div id="times"class="col-sm-2">11:00am</div>
-            <div id="todo" class="col-md-8"><input id="inputTextThree" class="input" type="text"></div>
+            <div id="todoC" class="col-md-8"><input id="inputTextC" class="input" type="text"></div>
             <div id="done-btn" class="col-sm-2"><button class="lock" id="lockC">Lock</button></div>
         </div>
         <div class="row">
             <div id="times"class="col-sm-2">12:00pm</div>
-            <div id="todo" class="col-md-8"><input id="inputTextFour" class="input" type="text"></div>
+            <div id="todoD" class="col-md-8"><input id="inputTextD" class="input" type="text"></div>
             <div id="done-btn" class="col-sm-2"><button class="lock" id="lockD">Lock</button></div>
         </div>
         <div class="row">
             <div id="times"class="col-sm-2">1:00pm</div>
-            <div id="todo" class="col-md-8"><input class="input" type="text"></div>
+            <div id="todoE" class="col-md-8"><input class="input" id="inputTextE" type="text"></div>
             <div id="done-btn" class="col-sm-2"></div>
         </div>
         <div class="row">
             <div id="times"class="col-sm-2">2:00pm</div>
-            <div id="todo" class="col-md-8"><input class="input" type="text"></div>
+            <div id="todoF" class="col-md-8"><input class="input" id="inputTextF"type="text"></div>
             <div id="done-btn" class="col-sm-2"></div>
         </div>
         <div class="row">
             <div id="times"class="col-sm-2">3:00pm</div>
-            <div id="todo" class="col-md-8"><input class="input" type="text"></div>
+            <div id="todoG" class="col-md-8"><input class="input" id="inputTextG"type="text"></div>
             <div id="done-btn" class="col-sm-2"></div>
         </div>
         <div class="row">
             <div id="times"class="col-sm-2">4:00pm</div>
-            <div id="todo" class="col-md-8"><input class="input" type="text"></div>
+            <div id="todoH" class="col-md-8"><input class="input" id="inputTextH"type="text"></div>
             <div id="done-btn" class="col-sm-2"></div>
         </div>
         <div class="row">
             <div id="times"class="col-sm-2">5:00pm</div>
-            <div id="todo" class="col-md-8"><input class="input" type="text"></div>
+            <div id="todoI" class="col-md-8"><input class="input" id="inputTextI"type="text"></div>
             <div id="done-btn" class="col-sm-2"></div>
         </div>
                                                                                                                 
@@ -76,62 +76,7 @@
 
 ​
   <!-- Script -->
-  <script>
-    var datePlacement = $("#date");
-    var timePlacement = $("#time");
-    var lockBtn = $("#lockA");
-    var inputText = $("#inputTextA");
-
-    // display date and time
-    datePlacement.append(moment().format("dddd, MMMM Do YYYY"));
-    timePlacement.append(moment().format("h:mm:ss a"));
-
-    // timer type setup to update the date time
-    var datetime = null,
-        date = null;
-
-    // display updated time
-    var update = function () {
-        date = moment(new Date())
-        datetime.html(date.format('h:mm a'));
-    };
-    // update date
-    $(document).ready(function(){
-        datetime = $('#time')
-        update();
-        setInterval(update, 1000);
-    });
-    
-    $("[id^=lock]").on("click", function () {
-        var id = this.id,
-            letter = id.substr(id.length - 1);
-
-        localStorage.setItem("input", $("#inputText" + letter).val());
-
-
-    });
-
-    // on click function for the lock button
-    // $(lockBtn).on("click", function() {
-
-    //     var thisID = $(this).attr("id");
-    //     var divToLock = ".content_" + thisID;
-    //     console.log("click!");
-    //     localStorage.setItem("input", inputText.val());
-    //     var inputOne = localStorage.getItem("input");
-    //     inputText.text();
-        
-    var hours = new Date().getHours();
-    if (hours >= 9 && hours <= 10) {
-        $("this").css("background-color", "red");
-        $("#inputTextA").css("background-color", "lightgray");
-    }
-    if (hours > 10) {
-        $("#todoA").css("background-color", "lightgray");
-        $("#inputTextA").css("background-color", "lightgray");
-    }
-
-  </script>
+  <script src="script.js"></script>
  
     
 </body>
