@@ -6,7 +6,7 @@ $(document).ready(function(){
     const storageData =  [ 
         {
             id: "textfieldA",
-            text: "userInputA"
+            text: $("#inputTextA").val()
         },
         {
             id: "textfieldB",
@@ -14,7 +14,7 @@ $(document).ready(function(){
         },
     ]
     
-
+    
     // display date and time
     datePlacement.append(moment().format("dddd, MMMM Do YYYY"));
     timePlacement.append(moment().format("h:mm:ss a"));
@@ -40,6 +40,7 @@ $(document).ready(function(){
             letter = id.substr(id.length - 1);
 
         localStorage.setItem("input", $("#inputText" + letter).val());
+ 
 
 
 
@@ -48,16 +49,6 @@ $(document).ready(function(){
     var a = localStorage.getItem("input");
     $(`#inputText${letter}`).text(a);
 
-
-    // on click function for the lock button
-    // $(lockBtn).on("click", function() {
-
-    //     var thisID = $(this).attr("id");
-    //     var divToLock = ".content_" + thisID;
-    //     console.log("click!");
-    //     localStorage.setItem("input", inputText.val());
-    //     var inputOne = localStorage.getItem("input");
-    //     inputText.text();
         
     var hours = new Date().getHours();
     console.log(hours);
